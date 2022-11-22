@@ -1,5 +1,5 @@
-title: BaseEngine文档
-description: 快速使用DataBinding + ViewModel实现MVVM进行开发，自动加载缺省页、Dialog、Toast。
+title: GFAndroid文档
+description: GFAndroid是个人开源的Android开发组件库，在工作中经过大量实践后选取的最优方案，目的是为了提高开发效率，并且会推荐一些优秀的第三方库。
 theme: just-the-docs
 
 url: https://Chen-Xi-g.github.io
