@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { useLanguage } from "@/contexts/language-context"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function About() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="about" className="py-20 bg-gray-950">
@@ -30,7 +30,7 @@ export default function About() {
               <div className="relative w-64 h-64 mx-auto">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500 to-cyan-500 blur-lg opacity-50"></div>
                 <img
-                  src="/placeholder.svg?height=256&width=256"
+                  src="/images/user_avatar.jpg"
                   alt="Guofeng Gao"
                   className="relative rounded-full w-full h-full object-cover border-2 border-green-500"
                 />
@@ -46,6 +46,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

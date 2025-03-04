@@ -1,40 +1,40 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, Loader2, Github } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Send, Loader2, Github } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function Contact() {
-  const { t } = useLanguage()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulate form submission
     setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
+      setIsSubmitting(false);
+      setIsSubmitted(true);
 
       // Reset form after 3 seconds
       setTimeout(() => {
-        setIsSubmitted(false)
-      }, 3000)
-    }, 1500)
-  }
+        setIsSubmitted(false);
+      }, 3000);
+    }, 1500);
+  };
 
   return (
     <section id="contact" className="py-20 bg-black">
@@ -52,7 +52,9 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">{t("contact.subtitle")}</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                {t("contact.subtitle")}
+              </h3>
               <p className="text-gray-400 mb-8">{t("contact.description")}</p>
 
               <div className="space-y-6">
@@ -61,7 +63,9 @@ export default function Contact() {
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium">{t("contact.email")}</h4>
+                    <h4 className="text-lg font-medium">
+                      {t("contact.email")}
+                    </h4>
                     <a
                       href="mailto:a912816369@gmail.com"
                       className="text-gray-400 hover:text-green-500 transition-colors"
@@ -76,9 +80,14 @@ export default function Contact() {
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium">{t("contact.phone")}</h4>
-                    <a href="tel:+8613161668101" className="text-gray-400 hover:text-green-500 transition-colors">
-                      +86 13161668101
+                    <h4 className="text-lg font-medium">
+                      {t("contact.phone")}
+                    </h4>
+                    <a
+                      href="tel:+8613161668101"
+                      className="text-gray-400 hover:text-green-500 transition-colors"
+                    >
+                      +(86) 13161668101
                     </a>
                   </div>
                 </div>
@@ -88,8 +97,12 @@ export default function Contact() {
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium">{t("contact.location")}</h4>
-                    <p className="text-gray-400">{t("contact.locationValue")}</p>
+                    <h4 className="text-lg font-medium">
+                      {t("contact.location")}
+                    </h4>
+                    <p className="text-gray-400">
+                      {t("contact.locationValue")}
+                    </p>
                   </div>
                 </div>
 
@@ -113,18 +126,25 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-2xl font-semibold mb-6">{t("contact.formTitle")}</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                {t("contact.formTitle")}
+              </h3>
 
               {isSubmitted ? (
                 <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 text-center">
-                  <h4 className="text-lg font-medium text-green-500 mb-2">{t("contact.success")}</h4>
+                  <h4 className="text-lg font-medium text-green-500 mb-2">
+                    {t("contact.success")}
+                  </h4>
                   <p className="text-gray-400">{t("contact.successMessage")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
                   <div className="space-y-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {t("contact.name")}
                       </label>
                       <Input
@@ -136,7 +156,10 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {t("contact.email")}
                       </label>
                       <Input
@@ -149,7 +172,10 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {t("contact.subject")}
                       </label>
                       <Input
@@ -161,7 +187,10 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium mb-2"
+                      >
                         {t("contact.message")}
                       </label>
                       <Textarea
@@ -198,6 +227,5 @@ export default function Contact() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
