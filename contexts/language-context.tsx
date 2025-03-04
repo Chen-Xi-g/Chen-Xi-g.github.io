@@ -53,7 +53,7 @@ const enTranslations = {
     "Building native Android applications with Kotlin and Jetpack Compose",
   "skills.kotlin.name": "Kotlin Multiplatform",
   "skills.kotlin.desc":
-    "Creating cross-platform applications with shared Kotlin code",
+    "Create cross-platform applications for mobile, desktop, and web using Kotlin Multiplatform code.",
   "skills.figma.name": "Figma",
   "skills.figma.desc": "Designing beautiful user interfaces and prototypes",
   "skills.gradle.name": "Gradle",
@@ -161,7 +161,8 @@ const zhTranslations = {
   "skills.android.name": "Android 开发",
   "skills.android.desc": "使用 Kotlin 和 Jetpack Compose 构建原生 Android 应用",
   "skills.kotlin.name": "Kotlin 多平台",
-  "skills.kotlin.desc": "使用共享 Kotlin 代码创建跨平台应用",
+  "skills.kotlin.desc":
+    "使用共享 Kotlin 代码创建移动端、桌面端、Web端跨平台应用",
   "skills.figma.name": "Figma 设计",
   "skills.figma.desc": "设计美观的用户界面和原型",
   "skills.gradle.name": "Gradle 构建",

@@ -1,9 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Smartphone, Code, FigmaIcon, GitBranch, Package, Server, Database, Cloud } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Smartphone,
+  Code,
+  FigmaIcon,
+  GitBranch,
+  Package,
+  Server,
+  Database,
+  Cloud,
+} from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 const getSkills = (t: (key: string) => string) => [
   {
@@ -54,16 +63,16 @@ const getSkills = (t: (key: string) => string) => [
     description: t("skills.cloud.desc"),
     level: 70,
   },
-]
+];
 
 export default function Skills() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
-  const skills = getSkills(t)
+  const skills = getSkills(t);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,7 +82,7 @@ export default function Skills() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -84,7 +93,7 @@ export default function Skills() {
         duration: 0.5,
       },
     },
-  }
+  };
 
   return (
     <section id="skills" className="py-20 bg-black">
@@ -104,27 +113,32 @@ export default function Skills() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-gray-900 rounded-lg p-6 border border-gray-800 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10"
+              className="bg-gray-900 rounded-lg p-6 border border-gray-800 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 flex flex-col"
             >
               <div className="flex items-center mb-4">
-                <div className="p-2 rounded-md bg-green-500/10 text-green-500 mr-3">{skill.icon}</div>
+                <div className="p-2 rounded-md bg-green-500/10 text-green-500 mr-3">
+                  {skill.icon}
+                </div>
                 <h3 className="text-xl font-semibold">{skill.name}</h3>
               </div>
-              <p className="text-gray-400 mb-4">{skill.description}</p>
-              <div className="w-full bg-gray-800 rounded-full h-2.5">
-                <div
-                  className="bg-gradient-to-r from-green-500 to-cyan-500 h-2.5 rounded-full"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-              <div className="flex justify-end mt-2">
-                <span className="text-sm text-green-500 font-medium">{skill.level}%</span>
+              <p className="text-gray-400 mb-auto">{skill.description}</p>
+              <div className="mt-4">
+                <div className="w-full bg-gray-800 rounded-full h-2.5">
+                  <div
+                    className="bg-gradient-to-r from-green-500 to-cyan-500 h-2.5 rounded-full"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
+                <div className="flex justify-end mt-2">
+                  <span className="text-sm text-green-500 font-medium">
+                    {skill.level}%
+                  </span>
+                </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
