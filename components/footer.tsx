@@ -1,8 +1,10 @@
-import { Github, Mail } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+"use client";
 
+import { Github, Mail } from "lucide-react";
+import { useLanguage, LanguageProvider } from "@/contexts/language-context";
+console.log(useLanguage);
 export default function Footer() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-gray-950 border-t border-gray-800">
@@ -40,11 +42,11 @@ export default function Footer() {
             © {new Date().getFullYear()} Guofeng Gao. {t("footer.rights")}
           </p>
           <p className="mt-2">
-            {t("footer.built")} <span className="text-green-500">♥</span> {t("footer.using")}
+            {t("footer.built")} <span className="text-green-500">♥</span>{" "}
+            {t("footer.using")}
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowDown, Github } from "lucide-react"
-import { motion } from "framer-motion"
-import { useLanguage } from "@/contexts/language-context"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function Hero() {
-  const { t } = useLanguage()
-  const [scrollY, setScrollY] = useState(0)
+  const { t } = useLanguage();
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
+      setScrollY(window.scrollY);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
@@ -43,12 +43,20 @@ export default function Hero() {
         className="z-10 max-w-4xl"
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          <span className="text-green-500">{t("hero.hello")}</span> <span className="gradient-text">高国峰</span>
+          <span className="text-green-500">{t("hero.hello")}</span>{" "}
+          <span className="gradient-text">{t("hero.name")}</span>
         </h1>
-        <h2 className="text-xl md:text-3xl mb-6 text-gray-400">{t("hero.title")}</h2>
-        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">{t("hero.description")}</p>
+        <h2 className="text-xl md:text-3xl mb-6 text-gray-400">
+          {t("hero.title")}
+        </h2>
+        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          {t("hero.description")}
+        </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Button className="bg-green-600 hover:bg-green-700 text-white" onClick={() => scrollToSection("projects")}>
+          <Button
+            className="bg-green-600 hover:bg-green-700 text-white"
+            onClick={() => scrollToSection("projects")}
+          >
             {t("hero.viewWork")}
           </Button>
           <Button
@@ -66,7 +74,12 @@ export default function Hero() {
             className="rounded-full text-gray-400 hover:text-white hover:bg-gray-800"
             asChild
           >
-            <a href="https://github.com/Chen-Xi-g" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a
+              href="https://github.com/Chen-Xi-g"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
               <Github className="h-5 w-5" />
             </a>
           </Button>
@@ -95,6 +108,5 @@ export default function Hero() {
         }
       `}</style>
     </section>
-  )
+  );
 }
-

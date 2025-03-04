@@ -1,16 +1,24 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
-type Language = "en" | "zh"
+type Language = "en" | "zh";
 
 type LanguageContextType = {
-  language: Language
-  setLanguage: (language: Language) => void
-  t: (key: string) => string
-}
+  language: Language;
+  setLanguage: (language: Language) => void;
+  t: (key: string) => string;
+};
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 // English translations
 const enTranslations = {
@@ -21,9 +29,11 @@ const enTranslations = {
   "nav.contact": "Contact",
 
   // Hero section
+  "hero.name": "高国峰",
   "hero.hello": "Hello, I'm",
   "hero.title": "Android Developer & Kotlin Multiplatform Specialist",
-  "hero.description": "I build exceptional mobile experiences with cutting-edge technologies",
+  "hero.description":
+    "I build exceptional mobile experiences with cutting-edge technologies",
   "hero.viewWork": "View My Work",
   "hero.contactMe": "Contact Me",
 
@@ -39,9 +49,11 @@ const enTranslations = {
   // Skills section
   "skills.title": "My Skills",
   "skills.android.name": "Android Development",
-  "skills.android.desc": "Building native Android applications with Kotlin and Jetpack Compose",
+  "skills.android.desc":
+    "Building native Android applications with Kotlin and Jetpack Compose",
   "skills.kotlin.name": "Kotlin Multiplatform",
-  "skills.kotlin.desc": "Creating cross-platform applications with shared Kotlin code",
+  "skills.kotlin.desc":
+    "Creating cross-platform applications with shared Kotlin code",
   "skills.figma.name": "Figma",
   "skills.figma.desc": "Designing beautiful user interfaces and prototypes",
   "skills.gradle.name": "Gradle",
@@ -53,7 +65,8 @@ const enTranslations = {
   "skills.databases.name": "Databases",
   "skills.databases.desc": "Working with SQLite, Room, and Firebase Firestore",
   "skills.cloud.name": "Cloud Services",
-  "skills.cloud.desc": "Deploying and managing applications on AWS and Google Cloud",
+  "skills.cloud.desc":
+    "Deploying and managing applications on AWS and Google Cloud",
 
   // Projects section
   "projects.title": "My Projects",
@@ -67,17 +80,23 @@ const enTranslations = {
 
   // Project titles and descriptions
   "project.fittrack.title": "FitTrack",
-  "project.fittrack.desc": "A fitness tracking app with personalized workout plans and progress analytics",
+  "project.fittrack.desc":
+    "A fitness tracking app with personalized workout plans and progress analytics",
   "project.cryptowatch.title": "CryptoWatch",
-  "project.cryptowatch.desc": "Real-time cryptocurrency tracking app with price alerts and portfolio management",
+  "project.cryptowatch.desc":
+    "Real-time cryptocurrency tracking app with price alerts and portfolio management",
   "project.taskmaster.title": "TaskMaster UI Kit",
-  "project.taskmaster.desc": "A comprehensive UI kit for productivity applications with dark and light themes",
+  "project.taskmaster.desc":
+    "A comprehensive UI kit for productivity applications with dark and light themes",
   "project.gradlescripts.title": "GradleScripts",
-  "project.gradlescripts.desc": "A collection of Gradle scripts to automate common Android development tasks",
+  "project.gradlescripts.desc":
+    "A collection of Gradle scripts to automate common Android development tasks",
   "project.weathernow.title": "WeatherNow",
-  "project.weathernow.desc": "A beautiful weather app with animated visualizations and accurate forecasts",
+  "project.weathernow.desc":
+    "A beautiful weather app with animated visualizations and accurate forecasts",
   "project.devnotes.title": "DevNotes",
-  "project.devnotes.desc": "A cross-platform note-taking app for developers with code syntax highlighting",
+  "project.devnotes.desc":
+    "A cross-platform note-taking app for developers with code syntax highlighting",
 
   // Contact section
   "contact.title": "Get In Touch",
@@ -91,7 +110,6 @@ const enTranslations = {
   "contact.formTitle": "Send a Message",
   "contact.name": "Name",
   "contact.namePlaceholder": "Your name",
-  "contact.email": "Email",
   "contact.emailPlaceholder": "your@email.com",
   "contact.subject": "Subject",
   "contact.subjectPlaceholder": "How can I help you?",
@@ -100,7 +118,8 @@ const enTranslations = {
   "contact.send": "Send Message",
   "contact.sending": "Sending...",
   "contact.success": "Message Sent!",
-  "contact.successMessage": "Thank you for reaching out. I'll get back to you as soon as possible.",
+  "contact.successMessage":
+    "Thank you for reaching out. I'll get back to you as soon as possible.",
 
   // Footer
   "footer.rights": "All rights reserved.",
@@ -110,7 +129,7 @@ const enTranslations = {
   // Language switcher
   "lang.en": "English",
   "lang.zh": "中文",
-}
+};
 
 // Chinese translations
 const zhTranslations = {
@@ -121,6 +140,7 @@ const zhTranslations = {
   "nav.contact": "联系",
 
   // Hero section
+  "hero.name": "高国峰",
   "hero.hello": "你好，我是",
   "hero.title": "Android 开发者 & Kotlin 多平台专家",
   "hero.description": "我使用前沿技术构建卓越的移动体验",
@@ -133,7 +153,8 @@ const zhTranslations = {
     "我是一名热衷于 Android 开发和 Kotlin 多平台的软件开发者。凭借超过 5 年的经验，我构建了受到数百万用户喜爱的应用程序。",
   "about.p2":
     "我的专业知识不仅限于编码 - 我精通使用 Figma 进行 UI/UX 设计，使用 Gradle 进行构建自动化，以及使用 Git 进行版本控制。我相信创建的软件不仅要实用，还要美观且直观。",
-  "about.p3": "当我不在编码时，你可以看到我在探索新技术，为开源项目做贡献，或通过技术文章和社区活动分享我的知识。",
+  "about.p3":
+    "当我不在编码时，你可以看到我在探索新技术，为开源项目做贡献，或通过技术文章和社区活动分享我的知识。",
 
   // Skills section
   "skills.title": "我的技能",
@@ -168,11 +189,13 @@ const zhTranslations = {
   "project.fittrack.title": "健身追踪",
   "project.fittrack.desc": "一款提供个性化锻炼计划和进度分析的健身追踪应用",
   "project.cryptowatch.title": "加密货币监控",
-  "project.cryptowatch.desc": "实时加密货币追踪应用，具有价格提醒和投资组合管理功能",
+  "project.cryptowatch.desc":
+    "实时加密货币追踪应用，具有价格提醒和投资组合管理功能",
   "project.taskmaster.title": "任务大师 UI 套件",
   "project.taskmaster.desc": "一个全面的生产力应用 UI 套件，支持深色和浅色主题",
   "project.gradlescripts.title": "Gradle 脚本集",
-  "project.gradlescripts.desc": "一系列自动化常见 Android 开发任务的 Gradle 脚本",
+  "project.gradlescripts.desc":
+    "一系列自动化常见 Android 开发任务的 Gradle 脚本",
   "project.weathernow.title": "天气预报",
   "project.weathernow.desc": "一款具有动画可视化效果和精准预报的精美天气应用",
   "project.devnotes.title": "开发笔记",
@@ -190,7 +213,6 @@ const zhTranslations = {
   "contact.formTitle": "发送消息",
   "contact.name": "姓名",
   "contact.namePlaceholder": "您的姓名",
-  "contact.email": "邮箱",
   "contact.emailPlaceholder": "your@email.com",
   "contact.subject": "主题",
   "contact.subjectPlaceholder": "我能如何帮助您？",
@@ -209,42 +231,45 @@ const zhTranslations = {
   // Language switcher
   "lang.en": "English",
   "lang.zh": "中文",
-}
+};
 
-const translations = {
+const translations: any = {
   en: enTranslations,
   zh: zhTranslations,
-}
+};
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("en");
 
   // Load language preference from localStorage on client side
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language
+    const savedLanguage = localStorage.getItem("language") as Language;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "zh")) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage);
     }
-  }, [])
+  }, []);
 
   // Save language preference to localStorage
   useEffect(() => {
-    localStorage.setItem("language", language)
-  }, [language])
+    localStorage.setItem("language", language);
+  }, [language]);
 
   // Translation function
   const t = (key: string): string => {
-    return translations[language][key] || key
-  }
+    return translations[language][key] || key;
+  };
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
-}
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
 
 export const useLanguage = () => {
-  const context = useContext(LanguageContext)
+  const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider")
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
-  return context
-}
-
+  return context;
+};
