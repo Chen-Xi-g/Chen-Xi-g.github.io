@@ -1,8 +1,8 @@
 "use client";
 
 import { Github, Mail } from "lucide-react";
-import { useLanguage, LanguageProvider } from "@/contexts/language-context";
-console.log(useLanguage);
+import { useLanguage } from "@/contexts/language-context";
+
 export default function Footer() {
   const { t } = useLanguage();
 
