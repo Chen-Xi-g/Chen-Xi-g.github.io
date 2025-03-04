@@ -29,7 +29,7 @@ const enTranslations = {
   "nav.contact": "Contact",
 
   // Hero section
-  "hero.name": "高国峰",
+  "hero.name": "Guofeng Gao",
   "hero.hello": "Hello, I'm",
   "hero.title": "Android Developer & Kotlin Multiplatform Specialist",
   "hero.description":
